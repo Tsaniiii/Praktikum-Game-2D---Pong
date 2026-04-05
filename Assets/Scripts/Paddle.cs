@@ -1,15 +1,13 @@
 using UnityEngine;
 
+
 public class Paddle : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+ protected Rigidbody2D _rigidbody;
 
-    // Update is called once per frame
-    void Update()
+[SerializeField] protected float speed = 10f;
+    private void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 }

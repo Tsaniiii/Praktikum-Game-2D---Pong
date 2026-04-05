@@ -1,16 +1,22 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem; 
 
 public class PlayerPaddle : Paddle
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Vector2 _direction;
+
+    public void OnMove(InputValue value)
     {
-        
+        _direction = value.Get<Vector2>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (_direction.sqrMagnitude != 0)
+        {
+            _rigidbody.AddForce(_direction * speed);
+        }
     }
 }
+
