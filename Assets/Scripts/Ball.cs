@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     }
     public void ResetBall()
 {
-    // Untuk dibuat balik ke tengah
+
     _rigidbody.position = Vector2.zero;
     _rigidbody.linearVelocity = Vector2.zero;
 

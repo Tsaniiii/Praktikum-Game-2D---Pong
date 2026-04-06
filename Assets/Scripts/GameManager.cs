@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        // Untuk sekarang kita restart aja gamenya kalau ada yang menang
-        // Nanti bisa kamu tambah UI "Game Over" di sini
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
