@@ -11,11 +11,11 @@ public partial class ComputerPaddle : Paddle
         if (ball.linearVelocity.x > 0.0f)
         {
             // Jika bola lebih tinggi dari paddle, gerak ke atas
-            if (ball.position.y > transform.position.y) {
+            if (ball.position.y > transform.position.y + 0.5f) {
                 _rigidbody.AddForce(Vector2.up * speed);
             } 
             // Jika bola lebih rendah, gerak ke bawah
-            else if (ball.position.y < transform.position.y) {
+            else if (ball.position.y < transform.position.y + 0.5f) {
                 _rigidbody.AddForce(Vector2.down * speed);
             }
         }
