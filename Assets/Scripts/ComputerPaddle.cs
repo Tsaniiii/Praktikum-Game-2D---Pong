@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class ComputerPaddle : Paddle
+public partial class ComputerPaddle : Paddle
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Kita butuh referensi ke bola untuk dikejar
+    [SerializeField] private Rigidbody2D ball;
+
+    private void FixedUpdate()
     {
-        
+        // Cek apakah bola bergerak ke arah AI (asumsi AI di kanan, x > 0)
+        if (ball.linearVelocity.x > 0.0f)
+        {
+            // Jika bola lebih tinggi dari paddle, gerak ke atas
+            if (ball.position.y > transform.position.y) {
+                _rigidbody.AddForce(Vector2.up * speed);
+            } 
+            // Jika bola lebih rendah, gerak ke bawah
+            else if (ball.position.y < transform.position.y) {
+                _rigidbody.AddForce(Vector2.down * speed);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
